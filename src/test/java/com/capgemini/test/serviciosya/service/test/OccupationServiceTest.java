@@ -4,6 +4,7 @@ import com.capgemini.serviciosya.beans.domain.Occupation;
 import com.capgemini.serviciosya.dao.IOccupationDao;
 import com.capgemini.serviciosya.dao.OccupationDaoMemory;
 import com.capgemini.serviciosya.service.OccupationService;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -65,7 +66,12 @@ public class OccupationServiceTest {
 
         this.occupationService.addOccupation(o);
 
-        this.occupationService.searchByIdOccupation(o.getId());
+        Occupation o2 = this.occupationService.searchByIdOccupation(o.getId());
 
+        Assert.assertTrue(o.getId().equals(o2.getId()) );
+
+        Occupation o3 = new Occupation("2","Bebedor de cerveza","Beber");
+
+        Assert.assertNull(this.occupationService.searchByIdOccupation(o3.getId()) );
     }
 }

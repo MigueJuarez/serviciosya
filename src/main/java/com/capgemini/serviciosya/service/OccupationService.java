@@ -42,8 +42,8 @@ public class OccupationService {
         this.occupationDao.delete(occupation);
     }
 
-    public void searchByIdOccupation(String id){
+    public Occupation searchByIdOccupation(String id){
 
-        this.occupationDao.searchById(id);
+        return this.occupationDao.searchById(id);
     }
 }
