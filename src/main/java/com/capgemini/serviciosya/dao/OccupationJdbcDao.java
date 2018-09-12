@@ -25,4 +25,9 @@ public class OccupationJdbcDao implements IOccupationDao {
     public Occupation searchById(String id) {
         return null;
     }
+
+    @Override
+    public void update(String id, Occupation occupation) {
+
+    }
 }

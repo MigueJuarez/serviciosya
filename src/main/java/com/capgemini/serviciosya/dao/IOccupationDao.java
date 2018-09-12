@@ -11,4 +11,5 @@ public interface IOccupationDao {
     void add (Occupation occupation);
     void delete(Occupation occupation);
     Occupation searchById(String id);
+    void update(String id, Occupation occupation);
 }

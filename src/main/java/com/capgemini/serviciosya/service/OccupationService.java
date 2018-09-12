@@ -9,7 +9,6 @@ public class OccupationService {
 
     private IOccupationDao occupationDao;
 
-
     public OccupationService () {
 
         super ();
@@ -42,8 +41,11 @@ public class OccupationService {
         this.occupationDao.delete(occupation);
     }
 
-    public void searchByIdOccupation(String id){
+    public Occupation searchByIdOccupation(String id){
 
-        this.occupationDao.searchById(id);
+        return this.occupationDao.searchById(id);
+    }
+    public  void upgradeOccupation(String id, Occupation occupation){
+        this.occupationDao.update(id,occupation);
     }
 }
