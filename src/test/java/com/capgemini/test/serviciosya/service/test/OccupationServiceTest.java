@@ -66,12 +66,7 @@ public class OccupationServiceTest {
 
         this.occupationService.addOccupation(o);
 
-        Occupation o2 = this.occupationService.searchByIdOccupation(o.getId());
+        this.occupationService.searchByIdOccupation(o.getId());
 
-        Assert.assertTrue(o.getId().equals(o2.getId()) );
-
-        Occupation o3 = new Occupation("2","Bebedor de cerveza","Beber");
-
-        Assert.assertNull(this.occupationService.searchByIdOccupation(o3.getId()) );
     }
 }

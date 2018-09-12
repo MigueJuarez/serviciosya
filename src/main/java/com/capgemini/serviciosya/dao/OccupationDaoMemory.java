@@ -70,4 +70,10 @@ public class OccupationDaoMemory implements IOccupationDao {
         //if not find the object return null.
         return null;
     }
+
+    @Override
+    public void update(String id, Occupation occupation) {
+        if(occupations.containsKey(id))
+            occupations.replace(id,occupation);
+    }
 }
