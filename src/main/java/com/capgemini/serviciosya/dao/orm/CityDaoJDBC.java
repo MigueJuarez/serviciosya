@@ -1,11 +1,11 @@
-package com.capgemini.serviciosya.dao.jdbcDao;
+package com.capgemini.serviciosya.dao.orm;
 
-import com.capgemini.serviciosya.beans.domain.entity.CityEntity;
-import com.capgemini.serviciosya.dao.interfaceDao.ITablesDao;
+import com.capgemini.serviciosya.beans.entity.CityEntity;
+import com.capgemini.serviciosya.dao.IDao;
 
 import java.util.List;
 
-public class CityJdbcDao implements ITablesDao<CityEntity,String> {
+public class CityDaoJDBC implements IDao <CityEntity,String> {
 
 
     @Override

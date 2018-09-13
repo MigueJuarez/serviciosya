@@ -1,9 +1,9 @@
-package com.capgemini.serviciosya.dao.interfaceDao;
+package com.capgemini.serviciosya.dao;
 
 
 import java.util.List;
 
-public interface ITablesDao <o,s> {
+public interface IDao<o,s> {
 
     void create(o object);
     List<o> findAllOccupations ();

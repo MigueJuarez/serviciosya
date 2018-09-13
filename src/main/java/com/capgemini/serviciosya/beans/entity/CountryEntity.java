@@ -1,4 +1,4 @@
-package com.capgemini.serviciosya.beans.domain.entity;
+package com.capgemini.serviciosya.beans.entity;
 
 import javax.persistence.*;
 

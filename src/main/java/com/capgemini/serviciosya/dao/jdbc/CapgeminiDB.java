@@ -1,4 +1,4 @@
-package com.capgemini.serviciosya.dao.jdbcDao;
+package com.capgemini.serviciosya.dao.jdbc;
 
 import com.capgemini.serviciosya.dao.daoException.DaoException;
 import org.apache.commons.dbcp.BasicDataSource;

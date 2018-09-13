@@ -15,9 +15,9 @@
         <property name="format_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
 
-        <mapping class="com.capgemini.serviciosya.beans.domain.entity.CountryEntity" />
-        <mapping class="com.capgemini.serviciosya.beans.domain.entity.CityEntity" />
-        <mapping class="com.capgemini.serviciosya.beans.domain.entity.ProvinceEntity" />
+        <mapping class="com.capgemini.serviciosya.beans.entity.CountryEntity" />
+        <mapping class="com.capgemini.serviciosya.beans.entity.CityEntity" />
+        <mapping class="com.capgemini.serviciosya.beans.entity.ProvinceEntity" />
 
     </session-factory>
 

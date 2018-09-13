@@ -1,26 +1,28 @@
-package com.capgemini.serviciosya.dao.jdbcDao.orm;
+package com.capgemini.serviciosya.dao.orm;
 
-import com.capgemini.serviciosya.beans.domain.entity.CountryEntity;
+import com.capgemini.serviciosya.beans.entity.CountryEntity;
 import com.capgemini.serviciosya.dao.daoException.DaoException;
-import com.capgemini.serviciosya.dao.interfaceDao.ITablesDao;
+import com.capgemini.serviciosya.dao.IDao;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.List;
-import java.util.logging.Logger;
 
-public class CountryDaoHibernate implements ITablesDao<CountryEntity,String> {
+import org.apache.log4j.Logger;
+
+public class CountryDao implements IDao<CountryEntity,String> {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionAnnotationFactory ();
-    private static final Logger logger= Logger.getLogger (String.valueOf(CountryDaoHibernate.class));
+    private static final Logger logger= Logger.getLogger (String.valueOf(CountryDao.class));
 
     @Override
     public void create(CountryEntity target) {
         // Validate the arguments.
         if (target == null) {
 
-            logger.warning ("Country object is null!");
+            logger.warn ("Country object is null!");
             return;
         }
 
@@ -39,7 +41,7 @@ public class CountryDaoHibernate implements ITablesDao<CountryEntity,String> {
 
         } catch (Exception e) {
 
-            logger.info (String.format ("Error creating new country %s", target));
+            logger.error (String.format ("Error creating new country %s", target));
             tx.rollback ();
             throw new DaoException(e.getMessage (), e);
 

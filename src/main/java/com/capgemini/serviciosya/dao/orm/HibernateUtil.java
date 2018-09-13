@@ -1,4 +1,4 @@
-package com.capgemini.serviciosya.dao.jdbcDao.orm;
+package com.capgemini.serviciosya.dao.orm;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -21,7 +21,6 @@ public final class HibernateUtil {
 
         super ();
     }
-
 
     private static SessionFactory buildSessionAnnotationFactory () {
 
