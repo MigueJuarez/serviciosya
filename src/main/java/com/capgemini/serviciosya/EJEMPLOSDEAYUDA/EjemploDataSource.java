@@ -15,39 +15,38 @@ public class EjemploDataSource {
 
         BasicDataSource dataSource = new BasicDataSource();
 
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("org.postgresql.Driver");
 
-        dataSource.setUrl("jdbc:mysql://localhost/testdb");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/serviciosya");
 
-        dataSource.setUsername("root");
+        dataSource.setUsername("postgres");
 
-        dataSource.setPassword("root");
+        dataSource.setPassword("12345678");
 
-
+        //CONNECTION
         Connection conn = null;
 
+        //STATEMENT
         PreparedStatement stmt = null;
 
         try {
 
-// Get connection and execute a simple query
+        // Get connection and execute a simple query
 
             conn = dataSource.getConnection();
 
-            stmt = conn.prepareStatement("SELECT * FROM users");
+            stmt = conn.prepareStatement("SELECT * FROM \"COUNTRY\"");
 
             ResultSet rs = stmt.executeQuery();
 
-// Print fetched data
+        // Print fetched data
 
             while (rs.next()) {
 
-                System.out.println("Username : " + rs.getString("username"));
-
+                System.out.println("Country : " + rs.getString("NAME_COUNTRY"));
             }
 
         } catch (SQLException e) {
-
 
             e.printStackTrace();
 

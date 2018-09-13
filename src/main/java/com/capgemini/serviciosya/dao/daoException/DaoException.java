@@ -1,4 +1,4 @@
-package com.capgemini.serviciosya.dao;
+package com.capgemini.serviciosya.dao.daoException;
 
 public class DaoException extends RuntimeException{
 

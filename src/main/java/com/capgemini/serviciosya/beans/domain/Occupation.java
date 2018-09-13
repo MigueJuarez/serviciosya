@@ -43,6 +43,12 @@ public class Occupation {
         this.description = description;
     }
 
+    public Occupation() {
+        id = "";
+        name = "";
+        description = "";
+    }
+
     // Getters and Setters declarations.
     /**
      *
@@ -105,5 +111,9 @@ public class Occupation {
     public void setDescription (String description) {
 
         this.description = description;
+    }
+
+    public void setId(int id) {
+        this.id = Integer.toString(id);
     }
 }

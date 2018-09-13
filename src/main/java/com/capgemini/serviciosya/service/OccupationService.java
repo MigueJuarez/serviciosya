@@ -1,13 +1,13 @@
 package com.capgemini.serviciosya.service;
 
 import com.capgemini.serviciosya.beans.domain.Occupation;
-import com.capgemini.serviciosya.dao.IOccupationDao;
+import com.capgemini.serviciosya.dao.interfaceDao.ITablesDao;
 
 import java.util.List;
 
 public class OccupationService {
 
-    private IOccupationDao occupationDao;
+    private ITablesDao occupationDao;
 
 
     public OccupationService () {
@@ -15,14 +15,14 @@ public class OccupationService {
         super ();
     }
 
-    public OccupationService (IOccupationDao occupationDao) {
+    public OccupationService (ITablesDao occupationDao) {
 
         super ();
 
         this.occupationDao = occupationDao;
     }
 
-    public void setOccupationDao(IOccupationDao occupationDao) {
+    public void setOccupationDao(ITablesDao occupationDao) {
 
         this.occupationDao = occupationDao;
     }
