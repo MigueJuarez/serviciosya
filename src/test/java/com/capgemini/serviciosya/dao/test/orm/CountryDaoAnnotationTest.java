@@ -11,9 +11,7 @@ import java.util.List;
 
 public class CountryDaoAnnotationTest {
 
-
     private ICountryDao dao = new CountryDao();
-
 
     @Test
     public void testCreate () {

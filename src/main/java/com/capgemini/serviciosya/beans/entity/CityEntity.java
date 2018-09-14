@@ -18,7 +18,6 @@ public class CityEntity {
 
     @ManyToOne
     @JoinColumn(name = "province_id")
-    @Column (length = 48, nullable = false)
     private ProvinceEntity province;
 
     public CityEntity() {

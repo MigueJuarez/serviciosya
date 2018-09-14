@@ -31,7 +31,8 @@ public class CountryDao implements ICountryDao <CountryEntity,Integer> {
         Transaction tx = null;
         try {
 
-            logger.info ("Getting hibernate session...");
+            logger.info ("Getting hibernate session.." +
+                    ".");
             session = this.sessionFactory.openSession ();
             tx = session.beginTransaction ();
 

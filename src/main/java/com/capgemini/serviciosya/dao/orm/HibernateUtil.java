@@ -31,7 +31,6 @@ public final class HibernateUtil {
             configuration.configure ("hibernate-annotation.cfg.xml");
             logger.debug ("Hibernate Annotation Configuration loaded...");
 
-
             logger.debug ("Creating Hibernate Annotation serviceRegistry...");
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder ().
                     applySettings (configuration.getProperties ()).build ();
@@ -51,7 +50,6 @@ public final class HibernateUtil {
             throw new ExceptionInInitializerError (ex);
         }
     }
-
 
     public static SessionFactory getSessionAnnotationFactory () {
 
