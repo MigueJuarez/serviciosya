@@ -1,21 +1,17 @@
 package com.capgemini.serviciosya.dao.orm;
 
 import com.capgemini.serviciosya.beans.entity.CityEntity;
+import com.capgemini.serviciosya.beans.entity.ProvinceEntity;
 import com.capgemini.serviciosya.dao.IDao;
 
 import java.util.List;
 
-public class CityDaoJDBC implements IDao <CityEntity,String> {
+public class CityDaoJDBC implements IDao <CityEntity,Integer> {
 
 
     @Override
     public void create(CityEntity object) {
 
-    }
-
-    @Override
-    public List<CityEntity> findAllOccupations() {
-        return null;
     }
 
     @Override
@@ -29,12 +25,22 @@ public class CityDaoJDBC implements IDao <CityEntity,String> {
     }
 
     @Override
-    public CityEntity searchById(String id) {
+    public CityEntity searchById(Integer id) {
         return null;
     }
 
     @Override
-    public void update(String id, CityEntity object) {
+    public List<CityEntity> findAll() {
+        return null;
+    }
+
+    @Override
+    public CityEntity findById(int id) {
+        return null;
+    }
+
+    @Override
+    public void update(ProvinceEntity p) {
 
     }
 }

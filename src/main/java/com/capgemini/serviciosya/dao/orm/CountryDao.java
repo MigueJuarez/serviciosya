@@ -1,8 +1,9 @@
 package com.capgemini.serviciosya.dao.orm;
 
 import com.capgemini.serviciosya.beans.entity.CountryEntity;
+import com.capgemini.serviciosya.beans.entity.ProvinceEntity;
+import com.capgemini.serviciosya.dao.ICountryDao;
 import com.capgemini.serviciosya.dao.daoException.DaoException;
-import com.capgemini.serviciosya.dao.IDao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +13,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-public class CountryDao implements IDao<CountryEntity,String> {
+public class CountryDao implements ICountryDao <CountryEntity,Integer> {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionAnnotationFactory ();
     private static final Logger logger= Logger.getLogger (String.valueOf(CountryDao.class));
@@ -52,11 +53,6 @@ public class CountryDao implements IDao<CountryEntity,String> {
     }
 
     @Override
-    public List<CountryEntity> findAllOccupations() {
-        return null;
-    }
-
-    @Override
     public void add(CountryEntity object) {
 
     }
@@ -67,15 +63,32 @@ public class CountryDao implements IDao<CountryEntity,String> {
     }
 
     @Override
-    public CountryEntity searchById(String id) {
+    public CountryEntity searchById(Integer id) {
         return null;
     }
 
+    @Override
+    public CountryEntity findById(int id) {
+        return null;
+    }
 
     @Override
-    public void update(String id, CountryEntity object) {
+    public void update(ProvinceEntity p) {
 
     }
 
+    @Override
+    public List<CountryEntity> findAll() {
+        return null;
+    }
 
+    @Override
+    public CountryEntity findByName(String argentina) {
+        return null;
+    }
+
+    @Override
+    public void update(CountryEntity c) {
+
+    }
 }

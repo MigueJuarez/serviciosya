@@ -26,9 +26,8 @@ public class ProvinceEntity {
         super ();
     }
 
-    public ProvinceEntity(int id,String name, CountryEntity country) {
+    public ProvinceEntity(String name, CountryEntity country) {
 
-        this.id = id;
         this.name = name;
         this.country = country;
     }
@@ -36,11 +35,6 @@ public class ProvinceEntity {
     public int getId () {
 
         return id;
-    }
-
-    public void setId (int id) {
-
-        this.id = id;
     }
 
     public String getName () {
@@ -64,5 +58,9 @@ public class ProvinceEntity {
     public String toString () {
 
         return this.name;
+    }
+
+    public void setId(int i) {
+        this.id = id;
     }
 }

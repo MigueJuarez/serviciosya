@@ -1,4 +1,7 @@
 package com.capgemini.serviciosya.dao;
 
-public interface IOccupationDao {
+import com.capgemini.serviciosya.beans.domain.Occupation;
+
+public interface IOccupationDao extends IDao <Occupation,Integer> {
+
 }

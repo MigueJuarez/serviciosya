@@ -45,12 +45,6 @@ public class ProvinceDao implements IProvinceDao{
     }
 
     @Override
-    public List<ProvinceEntity> findAllOccupations() {
-
-        return null;
-    }
-
-    @Override
     public void add(ProvinceEntity object) {
 
     }
@@ -66,8 +60,17 @@ public class ProvinceDao implements IProvinceDao{
     }
 
     @Override
-    public void update(Integer id, ProvinceEntity target) {
+    public List<ProvinceEntity> findAll() {
+        return null;
+    }
 
+    @Override
+    public ProvinceEntity findById(int id) {
+        return null;
+    }
+
+    @Override
+    public void update(ProvinceEntity target) {
         // Validate the arguments.
         if (target == null) {
 

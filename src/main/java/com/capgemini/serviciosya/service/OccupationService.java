@@ -29,7 +29,7 @@ public class OccupationService {
 
     public List<Occupation> findAllOccupations () {
 
-        return this.occupationDao.findAllOccupations ();
+        return this.occupationDao.findAll ();
     }
 
     public void addOccupation (Occupation occupation) {

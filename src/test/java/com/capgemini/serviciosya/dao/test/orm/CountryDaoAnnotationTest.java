@@ -1,20 +1,25 @@
 package com.capgemini.serviciosya.dao.test.orm;
 
+import com.capgemini.serviciosya.beans.entity.CountryEntity;
+import com.capgemini.serviciosya.dao.ICountryDao;
+import com.capgemini.serviciosya.dao.orm.CountryDao;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 
 public class CountryDaoAnnotationTest {
 
 
-    private ICountryDao dao = new CountryDaoHibernate ();
+    private ICountryDao dao = new CountryDao();
 
 
     @Test
     public void testCreate () {
 
         CountryEntity c = new CountryEntity ();
-        c.setName ("Venezuela");
+        c.setName ("Argentina");
         this.dao.create (c);
 
         Assert.assertNotNull ("Failure creating new country.", c.getId ());
