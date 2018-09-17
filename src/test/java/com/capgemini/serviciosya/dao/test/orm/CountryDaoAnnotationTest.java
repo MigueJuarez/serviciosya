@@ -40,7 +40,7 @@ public class CountryDaoAnnotationTest {
         int id = 4;
         this.dao.delete (id);
 
-        CountryEntity c = this.dao.findById (id);
+        CountryEntity c = (CountryEntity) this.dao.searchById (id);
 
         Assert.assertNull ("Failure deleting country.", c);
     }
@@ -60,7 +60,7 @@ public class CountryDaoAnnotationTest {
     @Test
     public void testFindByName () {
 
-        CountryEntity c = this.dao.findByName ("ARGENTINA");
+        CountryEntity c = this.dao.findByName ("Argentina");
 
         Assert.assertNotNull ("Failure finding country by name!", c);
     }

@@ -2,6 +2,15 @@ package com.capgemini.serviciosya.beans.entity;
 
 import javax.persistence.*;
 
+@NamedQueries (value = {
+
+        @NamedQuery(
+
+                name = "CountryFindByName",
+                query = "from Country c where c.name = :name"
+        )
+})
+
 @Entity (name = "Country") //COMUNICACION CON HIBERNATE PARA DECIRLE QUE ES UNA ENTIDAD DE UNA TABLA.
 @Table (name = "country") //TOMAMOS LA CLASE CountryEntity COMO country.
 

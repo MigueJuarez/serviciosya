@@ -1,6 +1,6 @@
 package com.capgemini.serviciosya.service;
 
-import com.capgemini.serviciosya.beans.domain.Occupation;
+import com.capgemini.serviciosya.beans.domain.OccupationEntity;
 import com.capgemini.serviciosya.dao.IDao;
 
 import java.util.List;
@@ -27,19 +27,19 @@ public class OccupationService {
         this.occupationDao = occupationDao;
     }
 
-    public List<Occupation> findAllOccupations () {
+    public List<OccupationEntity> findAllOccupations () {
 
         return this.occupationDao.findAll ();
     }
 
-    public void addOccupation (Occupation occupation) {
+    public void addOccupation (OccupationEntity occupationEntity) {
 
-        this.occupationDao.add (occupation);
+        this.occupationDao.create (occupationEntity);
     }
 
-    public void deleteOccupation(Occupation occupation){
+    public void deleteOccupation(OccupationEntity occupationEntity){
 
-        this.occupationDao.delete(occupation);
+        this.occupationDao.delete(occupationEntity);
     }
 
     public void searchByIdOccupation(String id){
