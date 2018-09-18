@@ -21,7 +21,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-                <value>com.capgemini.serviciosya.dao.ormSpring.CountryEntitySpring</value>
+                <value>com.capgemini.serviciosya.dao.spring.ormSpring.CountryDAOSpringImpl</value>
             </list>
         </property>
         <property name="hibernateProperties">

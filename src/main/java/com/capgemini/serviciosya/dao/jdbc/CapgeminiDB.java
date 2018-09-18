@@ -1,7 +1,7 @@
 package com.capgemini.serviciosya.dao.jdbc;
 
 import com.capgemini.serviciosya.dao.daoException.DaoException;
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
