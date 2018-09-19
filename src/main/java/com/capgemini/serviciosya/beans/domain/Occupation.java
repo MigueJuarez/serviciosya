@@ -2,7 +2,7 @@ package com.capgemini.serviciosya.beans.domain;
 
 /**
  *
- *  <p>The class <code>com.cagmeini.serviciosya.beans.domain.OccupationEntity<code/>
+ *  <p>The class <code>com.cagmeini.serviciosya.beans.domain.Occupation<code/>
  *  is a domain object for management the occupations information.
  *
  *  @author Raul Pena (raul.pena@gmail.com)
@@ -10,16 +10,16 @@ package com.capgemini.serviciosya.beans.domain;
  *  @since 1.8
  * */
 
-public class OccupationEntity {
+public class Occupation {
     // Private instances fields.
 
-    // OccupationEntity id.
+    // Occupation id.
     private String id;
 
-    // OccupationEntity name.
+    // Occupation name.
     private String name;
 
-    // OccupationEntity description.
+    // Occupation description.
     private String description;
 
 
@@ -33,7 +33,7 @@ public class OccupationEntity {
      *  @param name Name occupation.
      *  @param description Description occupation.
      * */
-    public OccupationEntity(String id, String name, String description) {
+    public Occupation(String id, String name, String description) {
 
         // Call to super class.
         super ();
@@ -43,7 +43,7 @@ public class OccupationEntity {
         this.description = description;
     }
 
-    public OccupationEntity() {
+    public Occupation() {
         id = "";
         name = "";
         description = "";

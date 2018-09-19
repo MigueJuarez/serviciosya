@@ -1,7 +1,7 @@
 package com.capgemini.serviciosya.dao.test.jdbc;
 
 
-import com.capgemini.serviciosya.beans.domain.OccupationEntity;
+import com.capgemini.serviciosya.beans.domain.Occupation;
 import com.capgemini.serviciosya.dao.IOccupationDao;
 import com.capgemini.serviciosya.dao.jdbc.OccupationDaoJDBC;
 import org.apache.log4j.Logger;
@@ -12,10 +12,10 @@ import org.junit.Test;
 import java.util.List;
 
 
-public class OccupationEntityServiceTest {
+public class OccupationServiceTest {
 
 
-    private static final Logger logger = Logger.getLogger (OccupationEntityServiceTest.class);
+    private static final Logger logger = Logger.getLogger (OccupationServiceTest.class);
 
 
     @Test
@@ -28,17 +28,17 @@ public class OccupationEntityServiceTest {
             IOccupationDao dao = new OccupationDaoJDBC();
 
             logger.debug ("Inserting new occupation.");
-            OccupationEntity c = new OccupationEntity();
+            Occupation c = new Occupation();
             c.setName ("Rum Tester.");
             c.setDescription ("xxxx");
             dao.create (c);
 
             logger.debug ("Checking test result.");
-            List<OccupationEntity> list = dao.findAll ();
+            List<Occupation> list = dao.findAll ();
 
             boolean r = Boolean.FALSE;
 
-            for (OccupationEntity item: list) {
+            for (Occupation item: list) {
 
                 if (item.getName ().equals (c.getName ())) {
                     r = Boolean.TRUE;
@@ -47,7 +47,7 @@ public class OccupationEntityServiceTest {
             }
 
             logger.info ("Finishing the test...");
-            Assert.assertTrue ("Failure inserting new OccupationEntity.", r);
+            Assert.assertTrue ("Failure inserting new Occupation.", r);
 
 
         } catch (Exception e) {

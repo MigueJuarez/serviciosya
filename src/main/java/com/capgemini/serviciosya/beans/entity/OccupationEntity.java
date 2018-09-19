@@ -1,11 +1,12 @@
-package com.capgemini.serviciosya.dao.jdbc;
+package com.capgemini.serviciosya.beans.entity;
 
 import com.capgemini.serviciosya.beans.domain.Occupation;
 import com.capgemini.serviciosya.dao.IOccupationDao;
 
 import java.util.List;
 
-public class OccupationDaoJDBC implements IOccupationDao {
+public class OccupationEntity implements IOccupationDao {
+
     @Override
     public void create(Occupation object) {
 
@@ -30,5 +31,4 @@ public class OccupationDaoJDBC implements IOccupationDao {
     public void update(Occupation object) {
 
     }
-
 }

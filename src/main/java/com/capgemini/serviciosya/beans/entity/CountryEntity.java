@@ -27,7 +27,7 @@ public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
 
     //IDENTIFICA LA COLUMNA ID EN LA TABLA, SI SE LLAMAN IGUAL NO HACE FALTA.
     @Column (name = "id",nullable = false,insertable = false,updatable = false)
-    private int id;
+    private Integer id;
 
     @Column (name = "name",length = 48,nullable = false) //CONFIGURACION DEL TAMAÑO Y SI ADMITE NULOS.
     private String name;
@@ -38,7 +38,7 @@ public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
         super();
     }
 
-    public CountryEntity(int id, String name) {
+    public CountryEntity(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

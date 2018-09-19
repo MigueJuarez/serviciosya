@@ -1,6 +1,6 @@
 package com.capgemini.serviciosya.beans.entity;
 
-import com.capgemini.serviciosya.beans.domain.OccupationEntity;
+import com.capgemini.serviciosya.beans.domain.Occupation;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Range;
 
@@ -62,7 +62,7 @@ public class ProviderEntity {
         @JoinTable (name = "occupation_x_provider",
                 joinColumns = {@JoinColumn (name = "provider_id")},
                 inverseJoinColumns = {@JoinColumn (name = "occupation_id")})
-        private Set<OccupationEntity> occupations = new HashSet<> ();
+        private Set<Occupation> occupations = new HashSet<> ();
 
 
         public ProviderEntity () {
@@ -99,12 +99,12 @@ public class ProviderEntity {
             this.name = name;
         }
 
-        public Set<OccupationEntity> getOccupations() {
+        public Set<Occupation> getOccupations() {
 
             return occupations;
         }
 
-        public void setOccupations(Set<OccupationEntity> occupations) {
+        public void setOccupations(Set<Occupation> occupations) {
 
             this.occupations = occupations;
         }
