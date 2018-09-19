@@ -1,5 +1,7 @@
 package com.capgemini.serviciosya.beans.domain;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 /**
  *
  *  <p>The class <code>com.cagmeini.serviciosya.beans.domain.Occupation<code/>
@@ -14,7 +16,7 @@ public class Occupation {
     // Private instances fields.
 
     // Occupation id.
-    private String id;
+    private Integer id;
 
     // Occupation name.
     private String name;
@@ -33,7 +35,7 @@ public class Occupation {
      *  @param name Name occupation.
      *  @param description Description occupation.
      * */
-    public Occupation(String id, String name, String description) {
+    public Occupation(Integer id, String name, String description) {
 
         // Call to super class.
         super ();
@@ -44,7 +46,7 @@ public class Occupation {
     }
 
     public Occupation() {
-        id = "";
+        id = 0;
         name = "";
         description = "";
     }
@@ -56,7 +58,7 @@ public class Occupation {
      *
      *  @return Return the occupation id.
      * */
-    public String getId () {
+    public Integer getId () {
         return id;
     }
 
@@ -66,7 +68,7 @@ public class Occupation {
      *
      *  @param id Set the occupation id.
      * */
-    public void setId (String id) {
+    public void setId (Integer id) {
         this.id = id;
     }
     /**
@@ -113,7 +115,4 @@ public class Occupation {
         this.description = description;
     }
 
-    public void setId(int id) {
-        this.id = Integer.toString(id);
-    }
 }
