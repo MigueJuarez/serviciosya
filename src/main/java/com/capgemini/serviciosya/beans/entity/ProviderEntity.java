@@ -14,7 +14,7 @@ import java.util.Set;
         @NamedQuery(
 
                 name  = "ProviderFindByPhone",
-                query = "from Provider p where p.phone = :phone"
+                query = "SELECT Provider p WHERE p.phone = :phone"
         )
 })
 @Entity (name = "Provider")

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.capgemini.serviciosya.beans.entity.CountryEntity;
-import com.capgemini.serviciosya.dao.repositories.ICountryRepository;
+import com.capgemini.serviciosya.dao.repository.ICountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,21 +21,17 @@ import org.junit.runners.MethodSorters;
 @RunWith (SpringJUnit4ClassRunner.class)
 @SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.NONE , classes = JpaConfiguration.class)
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
-public class CountryRepositoryTest {
-
+public class ICountryRepositoryTest {
 
     @Autowired
     private ICountryRepository repository = null;
 
+    private final Logger logger = LoggerFactory.getLogger (ICountryRepositoryTest.class);
 
-    private final Logger logger = LoggerFactory.getLogger (CountryRepositoryTest.class);
-
-
-    public CountryRepositoryTest () {
+    public ICountryRepositoryTest() {
 
         super ();
     }
-
 
     @Before
     public void setup () {
@@ -77,16 +73,6 @@ public class CountryRepositoryTest {
     }
 
     @Test
-    public void testGetAllGreater () {
-
-        logger.info ("Getting countries...");
-        List<CountryEntity> list = this.repository.findAllByIdGreaterThan (Integer.valueOf (3));
-
-        Assert.assertNotNull ("There are countries...", list);
-        Assert.assertFalse ("There are countries...",list.isEmpty ());
-    }
-
-    @Test
     public void testGetAllByName () {
 
         logger.info ("Getting countries...");
@@ -106,32 +92,12 @@ public class CountryRepositoryTest {
         // Assert.assertFalse ("There are countries...",list.isEmpty ());
     }
 
-    @Test
-    public void testGetBetween () {
-
-        logger.info ("Getting countries...");
-        List<CountryEntity> list = this.repository.findAllByIdBetween (Integer.valueOf (1),
-                Integer.valueOf (3));
-
-        Assert.assertNotNull ("There are countries...", list);
-        Assert.assertFalse ("There are countries...",list.isEmpty ());
-    }
 
     @Test
     public void testGetOne () {
 
         logger.info ("Getting countries...");
         CountryEntity country = this.repository.findOne (Integer.valueOf (1));
-
-        Assert.assertNotNull ("There is a country...", country);
-        Assert.assertEquals ("There is country...", "Argentina", country.getName ());
-    }
-
-    @Test
-    public void testGetOneByCode () {
-
-        logger.info ("Getting countries...");
-        CountryEntity country = this.repository.findOneByCode ("ar");
 
         Assert.assertNotNull ("There is a country...", country);
         Assert.assertEquals ("There is country...", "Argentina", country.getName ());

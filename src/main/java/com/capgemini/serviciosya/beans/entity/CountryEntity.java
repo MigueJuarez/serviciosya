@@ -2,18 +2,8 @@ package com.capgemini.serviciosya.beans.entity;
 
 import javax.persistence.*;
 
-@NamedQueries (value = {
-
-        @NamedQuery(
-
-                name = "CountryFindByName",
-                query = "from Country c where c.name = :name"
-        )
-})
-
 @Entity (name = "Country") //COMUNICACION CON HIBERNATE PARA DECIRLE QUE ES UNA ENTIDAD DE UNA TABLA.
 @Table (name = "country") //TOMAMOS LA CLASE CountryEntity COMO country.
-
 public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
 
     //PROCESO DE MAPEO
@@ -23,8 +13,7 @@ public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
     //COMO DECIRLE A HIBERNATE QUIEN GENERA LA SECUENCIA DE ID
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "country_seq") //LE DIGO QUIEN GENERA LA SECUENCIA
     @SequenceGenerator(name = "country_seq",sequenceName = "country_seq") //GENERADOR DE LA SECUENCIA
-    //
-
+    @Basic(optional = false)
     //IDENTIFICA LA COLUMNA ID EN LA TABLA, SI SE LLAMAN IGUAL NO HACE FALTA.
     @Column (name = "id",nullable = false,insertable = false,updatable = false)
     private Integer id;
@@ -59,5 +48,37 @@ public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int hashCode () {
+
+        int hash = 0;
+        hash += ((this.id != null)? (this.id.hashCode ()) : 0);
+
+        return hash;
+    }
+
+    @Override
+    public boolean equals (Object object) {
+
+        if (this == object)  {
+            return true;
+        }
+
+        if (object == null) {
+            return false;
+        }
+
+        if (getClass () != object.getClass ()) {
+            return false;
+        }
+
+        CountryEntity other = (CountryEntity) object;
+        if (!this.id.equals (other.getId ())) {
+            return false;
+        }
+
+        return true;
     }
 }

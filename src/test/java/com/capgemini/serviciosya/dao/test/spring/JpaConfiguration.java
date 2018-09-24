@@ -17,19 +17,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @Configuration
-@EnableJpaRepositories (basePackages = {"com.capgemini.serviciosya.dao.repositories"})
+@EnableJpaRepositories (basePackages = {"com.capgemini.serviciosya.dao.repository"})
 @EnableTransactionManagement
 public class JpaConfiguration {
 
-
     private Environment env = null;
-
 
     public JpaConfiguration () {
 
         super ();
     }
-
 
     @Autowired
     public void setEnvironment (Environment env) {
@@ -55,7 +52,6 @@ public class JpaConfiguration {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean ();
         entityManagerFactory.setDataSource (dataSource);
 
-
         entityManagerFactory.setPackagesToScan (env.getProperty ("entitymanager.packagesToScan"));
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter ();
@@ -67,7 +63,6 @@ public class JpaConfiguration {
         additionalProperties.put ("hibernate.hbm2ddl.auto", env.getProperty ("hibernate.hbm2ddl.auto"));
 
         entityManagerFactory.setJpaProperties (additionalProperties);
-
 
         return entityManagerFactory;
     }

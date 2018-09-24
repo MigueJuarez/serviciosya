@@ -25,8 +25,8 @@ public class ProvinceEntity {
         super ();
     }
 
-    public ProvinceEntity(String name, CountryEntity country) {
-
+    public ProvinceEntity(Integer id, String name, CountryEntity country) {
+        this.id = id;
         this.name = name;
         this.country = country;
     }
