@@ -17,9 +17,9 @@ import java.util.Set;
                 query = "SELECT Provider p WHERE p.phone = :phone"
         )
 })
+
 @Entity (name = "Provider")
 @Table (name = "provider")
-
 public class ProviderEntity {
 
 

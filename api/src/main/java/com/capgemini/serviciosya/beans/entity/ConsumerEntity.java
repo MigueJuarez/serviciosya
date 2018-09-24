@@ -2,7 +2,8 @@ package com.capgemini.serviciosya.beans.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-
+@Entity(name = "Consumer")
+@Table(name = "consumer")
 public class ConsumerEntity {
 
     @Id

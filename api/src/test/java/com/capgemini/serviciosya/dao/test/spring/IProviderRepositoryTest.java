@@ -34,11 +34,11 @@ public class IProviderRepositoryTest {
         logger.info ("Creating providers...");
         ProviderEntity[] providers = new ProviderEntity[]{
 
-                new ProviderEntity (Integer.valueOf(1),""),
-                new ProviderEntity (Integer.valueOf (2), ""),
-                new ProviderEntity (Integer.valueOf (3), ""),
-                new ProviderEntity (Integer.valueOf (4), ""),
-                new ProviderEntity (Integer.valueOf (5), "")
+                new ProviderEntity (Integer.valueOf(1),"Provider1"),
+                new ProviderEntity (Integer.valueOf (2), "Provider2"),
+                new ProviderEntity (Integer.valueOf (3), "Provider3"),
+                new ProviderEntity (Integer.valueOf (4), "Provider4"),
+                new ProviderEntity (Integer.valueOf (5), "Provider5")
         };
         logger.debug (String.format ("Objects provider created %s", Arrays.toString (providers)));
 
@@ -49,7 +49,7 @@ public class IProviderRepositoryTest {
 
     @Test
     public void addProviderTest(){
-        ProviderEntity p = new ProviderEntity(Integer.valueOf(6),"");
+        ProviderEntity p = new ProviderEntity(Integer.valueOf(6),"Provider6");
         long cantProviders = this.repository.count();
 
         this.repository.add(p);
