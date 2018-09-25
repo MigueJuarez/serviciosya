@@ -1,36 +1,33 @@
 package com.capgemini.serviciosya.beans.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import javax.persistence.*;
-
-@Entity(name = "City")
-@Table(name = "city")
-
+@Entity
 public class CityEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column (name = "id", nullable = false, insertable = false, updatable = false)
-    private int id;
-
-    @Column (name = "name", length = 48, nullable = false)
+    @GeneratedValue
+    private Integer id;
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "province_id")
-    private ProvinceEntity province;
+    private Integer province;
 
     public CityEntity() {
-        super();
+
     }
 
-    public CityEntity(String name, ProvinceEntity province) {
+    public CityEntity(String name, Integer province) {
         this.name = name;
         this.province = province;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,21 +38,21 @@ public class CityEntity {
         this.name = name;
     }
 
-    public ProvinceEntity getProvince() {
+    public Integer getProvince() {
         return province;
     }
 
-    public void setProvince(ProvinceEntity province) {
+    public void setProvince(Integer province) {
         this.province = province;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
-    public String toString () {
-
-        return this.name;
+    public String toString() {
+        return "CityEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
+
+
 }

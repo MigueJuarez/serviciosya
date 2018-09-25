@@ -1,44 +1,42 @@
 package com.capgemini.serviciosya.beans.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-@Entity(name = "Consumer")
-@Table(name = "consumer")
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class ConsumerEntity {
 
     @Id
     @GeneratedValue
-    @Column (name = "id",nullable = false,insertable = false,updatable = false)
-    private int id;
+    private Integer id;
 
-    @Column (name = "name",nullable = false,length = 48)
     private String name;
-
-    @Column (name = "lastName",nullable = false,length = 48)
     private String lastName;
-
-    @Column (name = "phone",nullable = false,length = 12,unique = true)
-    private String phone;
-
-    @Column (name = "dni", nullable = false, unique = true)
     private Integer dni;
-
-    @Column (name = "email", length = 128, nullable = false, unique = true)
-    @Size(min = 15, max = 100)
+    private String phone;
     private String email;
+    private String adress;
+    private Integer city;
 
-    @Column (name = "address", length = 128, nullable = false)
-    private String address;
+    public ConsumerEntity() {
+    }
 
-    @ManyToOne
-    @JoinColumn(name="city_id")
-    private CityEntity city;
+    public ConsumerEntity(String name, String lastName, Integer dni, String phone, String email, String adress, Integer city) {
+        this.name = name;
+        this.lastName = lastName;
+        this.dni = dni;
+        this.phone = phone;
+        this.email = email;
+        this.adress = adress;
+        this.city = city;
+    }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,20 +56,20 @@ public class ConsumerEntity {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public Integer getDni() {
         return dni;
     }
 
     public void setDni(Integer dni) {
         this.dni = dni;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -82,24 +80,28 @@ public class ConsumerEntity {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
-    public CityEntity getCity() {
+    public Integer getCity() {
         return city;
     }
 
-    public void setCity(CityEntity city) {
+    public void setCity(Integer city) {
         this.city = city;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(this.id);
+        return "Consumer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

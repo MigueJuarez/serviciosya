@@ -1,175 +1,117 @@
 package com.capgemini.serviciosya.beans.entity;
 
-import com.capgemini.serviciosya.beans.domain.Occupation;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Range;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
-
-@NamedQueries ({
-
-        @NamedQuery(
-
-                name  = "ProviderFindByPhone",
-                query = "SELECT Provider p WHERE p.phone = :phone"
-        )
-})
-
-@Entity (name = "Provider")
-@Table (name = "provider")
+@Entity
 public class ProviderEntity {
 
+    @Id
+    @GeneratedValue
+    private Integer id;
 
-        // Map the fields (Database tables ) and properties (Java classes)
-        @Id
-        @GeneratedValue (strategy=GenerationType.IDENTITY)
-        @Column (name = "id", nullable = false, insertable = false, updatable = false)
-        private int id;
+    private String name;
+    private String lastName;
+    private Integer dni;
+    private String adress;
+    private String phone;
+    private String email;
+    private String status;
+    private Integer city;
 
-        @Column (name = "name", length = 48, nullable = false)
-        private String name;
+    public ProviderEntity() {
+    }
 
-        @Column (name = "\"lastName\"", length = 48, nullable = false)
-        private String lastName;
+    public ProviderEntity(String name, String lastName, Integer dni, String adress, String phone, String email, String status, Integer city) {
+        this.name = name;
+        this.lastName = lastName;
+        this.dni = dni;
+        this.adress = adress;
+        this.phone = phone;
+        this.email = email;
+        this.status = status;
+        this.city = city;
+    }
 
-        @Column (name = "phone", length = 48, nullable = false, unique = true)
-        private String phone;
+    @Override
+    public String toString() {
+        return "ProviderEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 
-        @Column (name = "dni", nullable = false, unique = true)
-        private Integer dni;
+    public Integer getId() {
+        return id;
+    }
 
-        @Size (min = 15, max = 100)
-        @Email
-        @Column (name = "email", length = 128, nullable = false, unique = true)
-        private String email;
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-        @Column (name = "address", length = 128, nullable = false)
-        private String address;
+    public String getName() {
+        return name;
+    }
 
-        @Range (min = 0, max = 2)
-        @Column (name = "status", nullable = false)
-        private Integer status;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        @ManyToOne
-        @JoinColumn (name="city_id")
-        private CityEntity city;
+    public String getLastName() {
+        return lastName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-        @ManyToMany (cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-        @JoinTable (name = "occupation_x_provider",
-                joinColumns = {@JoinColumn (name = "provider_id")},
-                inverseJoinColumns = {@JoinColumn (name = "occupation_id")})
-        private Set<Occupation> occupations = new HashSet<> ();
+    public Integer getDni() {
+        return dni;
+    }
 
+    public void setDni(Integer dni) {
+        this.dni = dni;
+    }
 
-        public ProviderEntity () {
+    public String getAdress() {
+        return adress;
+    }
 
-            super ();
-        }
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 
-        public ProviderEntity(int id, String name) {
+    public String getPhone() {
+        return phone;
+    }
 
-            super ();
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-            this.id = id;
-            this.name = name;
-        }
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public int getId () {
+    public String getStatus() {
+        return status;
+    }
 
-            return id;
-        }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-        public void setId (int id) {
+    public Integer getCity() {
+        return city;
+    }
 
-            this.id = id;
-        }
-
-        public String getName () {
-
-            return name;
-        }
-
-        public void setName (String name) {
-
-            this.name = name;
-        }
-
-        public Set<Occupation> getOccupations() {
-
-            return occupations;
-        }
-
-        public void setOccupations(Set<Occupation> occupations) {
-
-            this.occupations = occupations;
-        }
-
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public Integer getDni() {
-            return dni;
-        }
-
-        public void setDni(Integer dni) {
-            this.dni = dni;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
-        }
-
-        public Integer getStatus() {
-            return status;
-        }
-
-        public void setStatus(Integer status) {
-            this.status = status;
-        }
-
-        public CityEntity getCity() {
-            return city;
-        }
-
-        public void setCity(CityEntity city) {
-            this.city = city;
-        }
-
-        @Override
-        public String toString () {
-
-            return this.name;
-        }
+    public void setCity(Integer city) {
+        this.city = city;
+    }
 }

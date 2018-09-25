@@ -1,44 +1,30 @@
 package com.capgemini.serviciosya.beans.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@Entity (name = "Country") //COMUNICACION CON HIBERNATE PARA DECIRLE QUE ES UNA ENTIDAD DE UNA TABLA.
-@Table (name = "country") //TOMAMOS LA CLASE CountryEntity COMO country.
-public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
+@Entity
+public class CountryEntity {
 
-    //PROCESO DE MAPEO
-
-    @Id //MAPEA EL CAMPO QUE SE IDENTIFICA COMO PRIMARYKEY
-
-    //COMO DECIRLE A HIBERNATE QUIEN GENERA LA SECUENCIA DE ID
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "country_seq") //LE DIGO QUIEN GENERA LA SECUENCIA
-    @SequenceGenerator(name = "country_seq",sequenceName = "country_seq") //GENERADOR DE LA SECUENCIA
-    @Basic(optional = false)
-    //IDENTIFICA LA COLUMNA ID EN LA TABLA, SI SE LLAMAN IGUAL NO HACE FALTA.
-    @Column (name = "id",nullable = false,insertable = false,updatable = false)
+    @Id
+    @GeneratedValue
     private Integer id;
-
-    @Column (name = "name",length = 48,nullable = false) //CONFIGURACION DEL TAMAÑO Y SI ADMITE NULOS.
     private String name;
 
-    //CONSTRUCTORES
+    public CountryEntity(){
 
-    public CountryEntity() {
-        super();
     }
-
-    public CountryEntity(Integer id, String name) {
+    public CountryEntity(Integer id, String name){
         this.id = id;
         this.name = name;
     }
 
-    //GETS AND SETS
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,34 +37,12 @@ public class CountryEntity { //CLASE DE DOMINIO PARA LA TABLA EN BASE DE DATOS
     }
 
     @Override
-    public int hashCode () {
-
-        int hash = 0;
-        hash += ((this.id != null)? (this.id.hashCode ()) : 0);
-
-        return hash;
+    public String toString() {
+        return "CountryEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 
-    @Override
-    public boolean equals (Object object) {
 
-        if (this == object)  {
-            return true;
-        }
-
-        if (object == null) {
-            return false;
-        }
-
-        if (getClass () != object.getClass ()) {
-            return false;
-        }
-
-        CountryEntity other = (CountryEntity) object;
-        if (!this.id.equals (other.getId ())) {
-            return false;
-        }
-
-        return true;
-    }
 }

@@ -1,65 +1,59 @@
 package com.capgemini.serviciosya.beans.entity;
 
+import com.capgemini.serviciosya.repository.ProvinceRepository;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@Entity (name = "Province")
-@Table (name = "province")
-public class ProvinceEntity {
+@Entity
+public class ProvinceEntity{
 
-    // Map the fields (Database tables ) and properties (Java classes)
     @Id
-    @GeneratedValue (strategy=GenerationType.IDENTITY)
-    @Column (name = "id", nullable = false, insertable = false, updatable = false)
-    private int id;
+    @GeneratedValue
+    private Integer id;
 
-    @Column (name = "name", length = 48, nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private CountryEntity country;
+    private Integer country;
 
-    public ProvinceEntity () {
-
-        super ();
+    public ProvinceEntity() {
     }
 
-    public ProvinceEntity(Integer id, String name, CountryEntity country) {
-        this.id = id;
+    public ProvinceEntity(String name, Integer country) {
         this.name = name;
         this.country = country;
     }
 
-    public int getId () {
-
+    public Integer getId() {
         return id;
     }
 
-    public String getName () {
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public String getName() {
         return name;
     }
 
-    public void setName (String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public CountryEntity getCountry() {
+    public Integer getCountry() {
         return country;
     }
 
-    public void setCountry(CountryEntity country) {
+    public void setCountry(Integer country) {
         this.country = country;
     }
 
     @Override
-    public String toString () {
-
-        return this.name;
-    }
-
-    public void setId(int i) {
-        this.id = id;
+    public String toString() {
+        return "ProvinceEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
