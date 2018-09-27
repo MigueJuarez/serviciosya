@@ -1,8 +1,7 @@
 package com.capgemini.serviciosya.service;
 
 import com.capgemini.serviciosya.beans.entity.CountryEntity;
-import com.capgemini.serviciosya.repository.CountryRepository;
-import com.capgemini.serviciosya.service.CountryService;
+import com.capgemini.serviciosya.dao.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.capgemini.serviciosya.beans.entity.CountryEntity;
-import com.capgemini.serviciosya.dao.repository.ICountryRepository;
+import com.capgemini.serviciosya.dao.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -24,7 +24,7 @@ import org.junit.runners.MethodSorters;
 public class ICountryRepositoryTest {
 
     @Autowired
-    private ICountryRepository repository = null;
+    private CountryRepository repository = null;
 
     private final Logger logger = LoggerFactory.getLogger (ICountryRepositoryTest.class);
 
@@ -72,15 +72,6 @@ public class ICountryRepositoryTest {
         Assert.assertFalse ("There are countries...",list.isEmpty ());
     }
 
-    @Test
-    public void testGetAllByName () {
-
-        logger.info ("Getting countries...");
-        List<CountryEntity> list = this.repository.findAllByName ("%A%");
-
-        Assert.assertNotNull ("There are countries...", list);
-        Assert.assertFalse ("There are countries...",list.isEmpty ());
-    }
 
     @Test
     public void testGetAllLess () {

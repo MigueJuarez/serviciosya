@@ -8,7 +8,6 @@ import javax.persistence.Id;
 public class CountryEntity {
 
     @Id
-    @GeneratedValue
     private Integer id;
     private String name;
 

@@ -1,7 +1,5 @@
 package com.capgemini.serviciosya.beans.entity;
 
-import com.capgemini.serviciosya.repository.ProvinceRepository;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +22,8 @@ public class ProvinceEntity{
         this.name = name;
         this.country = country;
     }
+
+
 
     public Integer getId() {
         return id;

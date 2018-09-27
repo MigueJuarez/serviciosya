@@ -2,7 +2,7 @@ package com.capgemini.serviciosya.dao.test.spring;
 
 import com.capgemini.serviciosya.beans.entity.CountryEntity;
 import com.capgemini.serviciosya.beans.entity.ProvinceEntity;
-import com.capgemini.serviciosya.dao.repository.IProvinceRepository;
+import com.capgemini.serviciosya.dao.repository.ProvinceRepository;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class IProvinceRepositoryTest {
 
     @Autowired
-    private IProvinceRepository repository = null;
+    private ProvinceRepository repository = null;
 
     private final Logger logger = LoggerFactory.getLogger (IProvinceRepositoryTest.class);
 
@@ -34,7 +34,7 @@ public class IProvinceRepositoryTest {
 
         logger.info ("Creating provinces...");
         ProvinceEntity[] provinces = new ProvinceEntity[]{
-            new ProvinceEntity(Integer.valueOf(1),"Buenos Aires",new CountryEntity(Integer.valueOf(1),"Argentina"))
+            new ProvinceEntity("Buenos Aires",Integer.valueOf(1))
         };
         logger.debug (String.format ("Objects provinces created %s", Arrays.toString (provinces)));
 
@@ -45,10 +45,10 @@ public class IProvinceRepositoryTest {
 
     @Test
     public void addProviderTest(){
-        ProvinceEntity p = new ProvinceEntity (Integer.valueOf(6),"La Pampa",new CountryEntity(Integer.valueOf(1),"Argentina"));
+        ProvinceEntity p = new ProvinceEntity ("La Pampa",Integer.valueOf(1));
         long cantProvinces = this.repository.count();
 
-        this.repository.add(p);
+        this.repository.save(p);
 
         Assert.assertEquals(cantProvinces+1,this.repository.count());
     }

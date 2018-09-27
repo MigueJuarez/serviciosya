@@ -1,7 +1,7 @@
 package com.capgemini.serviciosya.dao.test.spring;
 
 import com.capgemini.serviciosya.beans.entity.ProviderEntity;
-import com.capgemini.serviciosya.dao.repository.IProviderRepository;
+import com.capgemini.serviciosya.dao.repository.ProviderRepository;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class IProviderRepositoryTest {
 
     @Autowired
-    private IProviderRepository repository = null;
+    private ProviderRepository repository = null;
 
     private final Logger logger = LoggerFactory.getLogger (IProviderRepositoryTest.class);
 
@@ -34,11 +34,11 @@ public class IProviderRepositoryTest {
         logger.info ("Creating providers...");
         ProviderEntity[] providers = new ProviderEntity[]{
 
-                new ProviderEntity (Integer.valueOf(1),"Provider1"),
-                new ProviderEntity (Integer.valueOf (2), "Provider2"),
-                new ProviderEntity (Integer.valueOf (3), "Provider3"),
-                new ProviderEntity (Integer.valueOf (4), "Provider4"),
-                new ProviderEntity (Integer.valueOf (5), "Provider5")
+                new ProviderEntity (),
+                new ProviderEntity (),
+                new ProviderEntity (),
+                new ProviderEntity (),
+                new ProviderEntity ()
         };
         logger.debug (String.format ("Objects provider created %s", Arrays.toString (providers)));
 
@@ -49,10 +49,10 @@ public class IProviderRepositoryTest {
 
     @Test
     public void addProviderTest(){
-        ProviderEntity p = new ProviderEntity(Integer.valueOf(6),"Provider6");
+        ProviderEntity p = new ProviderEntity();
         long cantProviders = this.repository.count();
 
-        this.repository.add(p);
+        this.repository.save(p);
 
         Assert.assertEquals(cantProviders+1,this.repository.count());
     }

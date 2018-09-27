@@ -1,7 +1,7 @@
 package com.capgemini.serviciosya.service;
 
 import com.capgemini.serviciosya.beans.entity.ServiceEntity;
-import com.capgemini.serviciosya.repository.ServiceRepository;
+import com.capgemini.serviciosya.dao.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
