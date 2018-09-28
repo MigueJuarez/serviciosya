@@ -1,8 +1,9 @@
+
 package com.capgemini.serviciosya.controller;
 
-import com.capgemini.serviciosya.beans.entity.CountryEntity;
-import com.capgemini.serviciosya.dao.repository.CountryRepository;
 
+import com.capgemeini.serviciosya.beans.entity.CountryEntity;
+import com.capgemeini.serviciosya.dao.ICountryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,35 +13,41 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping ("country")
+@RequestMapping ("countries")
 public class CountryController {
 
-    private CountryRepository countryRepository;
-
-    public CountryController(){
-        super();
-    }
 
     @Autowired
-    public void serProductRepository(CountryRepository countryRepository){
-        this.countryRepository = countryRepository;
+    private ICountryDao countryDao;
+
+
+    public CountryController () {
+
+        super ();
     }
 
-    @RequestMapping (method = RequestMethod.GET,produces = (MediaType.APPLICATION_JSON_VALUE))
-    public ResponseEntity<?> get(){
-        return ResponseEntity.ok(this.countryRepository.findAll());
+
+    @RequestMapping (method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> get () {
+
+        // Return the value.
+        return ResponseEntity.ok (this.countryDao.findAll ());
     }
 
-    @RequestMapping (value = "/id",method = RequestMethod.GET,produces = (MediaType.APPLICATION_JSON_VALUE))
-    public ResponseEntity<?> get (@PathVariable ("id") Integer id){
+    @RequestMapping (value = "/{id}", method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> get (@PathVariable("id") Integer id) {
 
-        CountryEntity country = this.countryRepository.findOne(id);
 
-        if(country == null){
+        CountryEntity c = this.countryDao.findOne (id);
+
+        if (c == null) {
+
             return ResponseEntity.notFound().build();
+
+        } else {
+
+            return ResponseEntity.ok (this.countryDao.findOne (id));
         }
-        else
-            return ResponseEntity.ok(country);
     }
 
     @RequestMapping (method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE},
@@ -52,7 +59,7 @@ public class CountryController {
             country.setId(id);
             country.setName("name");
 
-            this.countryRepository.save(country);
+            this.countryDao.save(country);
         }
         catch (Exception e){
             return ResponseEntity.unprocessableEntity().build();
@@ -62,7 +69,7 @@ public class CountryController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.countryRepository.delete(id);
+        this.countryDao.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
