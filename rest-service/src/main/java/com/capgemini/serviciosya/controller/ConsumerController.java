@@ -35,7 +35,7 @@ public class ConsumerController {
             return ResponseEntity.notFound().build();
         }
         else {
-            return ResponseEntity.ok(this.consumerDao.findOne(id));
+            return ResponseEntity.ok(consumer);
         }
     }
 

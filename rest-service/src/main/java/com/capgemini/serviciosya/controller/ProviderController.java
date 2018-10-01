@@ -39,6 +39,19 @@ public class ProviderController {
         }
     }
 
+    @RequestMapping(value = "/{findbydni}/{dni}", method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getDni(@PathVariable("dni") Integer dni){
+
+        ProviderEntity provider = this.providerDao.findBydni(dni);
+
+        if (provider == null){
+            return ResponseEntity.notFound().build();
+        }
+        else {
+            return ResponseEntity.ok(provider);
+        }
+    }
+
     @RequestMapping (method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE},
             produces={MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody

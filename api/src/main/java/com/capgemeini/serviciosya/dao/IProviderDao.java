@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IProviderDao extends JpaRepository <ProviderEntity,Integer> {
 
+    ProviderEntity findBydni(Integer dni);
 }

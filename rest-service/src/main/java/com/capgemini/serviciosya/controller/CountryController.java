@@ -37,23 +37,23 @@ public class CountryController {
     @RequestMapping (value = "/{id}", method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> get (@PathVariable("id") Integer id) {
 
-        CountryEntity c = this.countryDao.findOne (id);
+        CountryEntity country = this.countryDao.findOne (id);
 
-        if (c == null) {
+        if (country == null) {
 
             return ResponseEntity.notFound().build();
 
         } else {
 
-            return ResponseEntity.ok (c);
+            return ResponseEntity.ok (country);
         }
     }
 
     @RequestMapping (method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE},
             produces={MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    //public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") String id){
-    public ResponseEntity<?> save(@ModelAttribute CountryEntity data, @PathVariable ("id") String id){
+    public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") String id){
+    //public ResponseEntity<?> save(@ModelAttribute CountryEntity data, @PathVariable ("id") String id){
 
         try {
             CountryEntity country = new CountryEntity();

@@ -35,7 +35,7 @@ public class CityController {
             return ResponseEntity.notFound().build();
         }
         else {
-            return ResponseEntity.ok(this.cityDao.findOne(id));
+            return ResponseEntity.ok(city);
         }
     }
 

@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -36,6 +37,19 @@ public class ProvinceController {
         }
         else {
             return ResponseEntity.ok(this.provinceDao.findOne(id));
+        }
+    }
+
+    @RequestMapping(value = "/{findbycountry}/{country_id}", method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getbycountry(@PathVariable("country_id") Integer country_id){
+
+        List <ProvinceEntity> provinces = this.provinceDao.findBycountry_id(country_id);
+
+        if (provinces.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        else {
+            return ResponseEntity.ok(provinces);
         }
     }
 

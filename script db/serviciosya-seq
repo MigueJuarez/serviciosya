@@ -1,0 +1,63 @@
+
+    -- SEQUENCE: public.city_seq
+
+-- DROP SEQUENCE public.city_seq;
+
+CREATE SEQUENCE public.city_seq;
+
+ALTER SEQUENCE public.city_seq
+    OWNER TO postgres;
+
+    -- SEQUENCE: public.consumer_seq
+
+-- DROP SEQUENCE public.consumer_seq;
+
+CREATE SEQUENCE public.consumer_seq;
+
+ALTER SEQUENCE public.consumer_seq
+    OWNER TO postgres;
+
+    - SEQUENCE: public.country_seq
+
+-- DROP SEQUENCE public.country_seq;
+
+CREATE SEQUENCE public.country_seq;
+
+ALTER SEQUENCE public.country_seq
+    OWNER TO postgres;
+
+    -- SEQUENCE: public.occupation_seq
+
+-- DROP SEQUENCE public.occupation_seq;
+
+CREATE SEQUENCE public.occupation_seq;
+
+ALTER SEQUENCE public.occupation_seq
+    OWNER TO postgres;
+
+    -- SEQUENCE: public.occupation_x_provider_seq
+
+-- DROP SEQUENCE public.occupation_x_provider_seq;
+
+CREATE SEQUENCE public.occupation_x_provider_seq;
+
+ALTER SEQUENCE public.occupation_x_provider_seq
+    OWNER TO postgres;
+
+    -- SEQUENCE: public.provider_seq
+
+-- DROP SEQUENCE public.provider_seq;
+
+CREATE SEQUENCE public.provider_seq;
+
+ALTER SEQUENCE public.provider_seq
+    OWNER TO postgres;
+
+    -- SEQUENCE: public.province_seq
+
+-- DROP SEQUENCE public.province_seq;
+
+CREATE SEQUENCE public.province_seq;
+
+ALTER SEQUENCE public.province_seq
+    OWNER TO postgres;
