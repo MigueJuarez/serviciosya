@@ -29,11 +29,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 public class JpaConfiguration {
 
-
-
   private Environment env = null;
-
-
 
   public JpaConfiguration () {
 
@@ -41,16 +37,12 @@ public class JpaConfiguration {
     super ();
   }
 
-
-
   @Autowired
   public void setEnvironment (Environment env) {
 
     // Set the value.
     this.env = env;
   }
-
-
 
   @Bean (destroyMethod = "close")
   public ComboPooledDataSource dataSource () throws PropertyVetoException {

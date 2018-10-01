@@ -53,10 +53,10 @@ public class CountryController {
     @RequestMapping (method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE},
             produces={MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") Integer id){
+    public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") String id){
         try {
             CountryEntity country = new CountryEntity();
-            country.setId(id);
+            country.setId(Integer.valueOf(id));
             country.setName("name");
 
             this.countryDao.save(country);
