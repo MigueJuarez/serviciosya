@@ -29,7 +29,7 @@ public class ProviderEntity {
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name = "id", nullable = false, insertable = false, updatable = false)
-    private int id;
+    private Integer id;
 
     @Column (name = "name", length = 48, nullable = false)
     private String name;
@@ -81,12 +81,12 @@ public class ProviderEntity {
     }
 
 
-    public int getId () {
+    public Integer getId () {
 
         return id;
     }
 
-    public void setId (int id) {
+    public void setId (Integer id) {
 
         this.id = id;
     }
