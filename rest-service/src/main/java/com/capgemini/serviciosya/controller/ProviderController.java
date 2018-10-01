@@ -57,8 +57,13 @@ public class ProviderController {
     }
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
-    public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.providerDao.delete(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<?> delete (@PathVariable ("id") Integer id) {
+        if (providerDao.findOne(id) != null) {
+            this.providerDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -37,7 +37,6 @@ public class CountryController {
     @RequestMapping (value = "/{id}", method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> get (@PathVariable("id") Integer id) {
 
-
         CountryEntity c = this.countryDao.findOne (id);
 
         if (c == null) {
@@ -46,14 +45,16 @@ public class CountryController {
 
         } else {
 
-            return ResponseEntity.ok (this.countryDao.findOne (id));
+            return ResponseEntity.ok (c);
         }
     }
 
     @RequestMapping (method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE},
             produces={MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") String id){
+    //public ResponseEntity<?> save(@RequestBody Map<Integer,Object> data, @PathVariable ("id") String id){
+    public ResponseEntity<?> save(@ModelAttribute CountryEntity data, @PathVariable ("id") String id){
+
         try {
             CountryEntity country = new CountryEntity();
             country.setId(Integer.valueOf(id));
@@ -69,7 +70,12 @@ public class CountryController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.countryDao.delete(id);
-        return ResponseEntity.noContent().build();
+        if (countryDao.findOne(id) != null) {
+            this.countryDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

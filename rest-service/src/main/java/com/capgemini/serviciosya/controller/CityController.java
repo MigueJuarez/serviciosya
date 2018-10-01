@@ -58,7 +58,12 @@ public class CityController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.cityDao.delete(id);
-        return ResponseEntity.noContent().build();
+        if (cityDao.findOne(id) != null) {
+            this.cityDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

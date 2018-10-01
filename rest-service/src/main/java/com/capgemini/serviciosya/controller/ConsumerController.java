@@ -58,7 +58,12 @@ public class ConsumerController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.consumerDao.delete(id);
-        return ResponseEntity.noContent().build();
+        if (consumerDao.findOne(id) != null) {
+            this.consumerDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

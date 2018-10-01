@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICountryDao extends JpaRepository<CountryEntity, Integer> {
+
 }

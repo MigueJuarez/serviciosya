@@ -30,13 +30,13 @@ public class OccupationController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> get(@PathVariable("id") Integer id){
 
-        OccupationEntity province = this.occupationDao.findOne(id);
+        OccupationEntity occupation = this.occupationDao.findOne(id);
 
-        if (province == null){
+        if (occupation == null){
             return ResponseEntity.notFound().build();
         }
         else {
-            return ResponseEntity.ok(this.occupationDao.findOne(id));
+            return ResponseEntity.ok(occupation);
         }
     }
 
@@ -65,7 +65,12 @@ public class OccupationController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.occupationDao.delete(id);
-        return ResponseEntity.noContent().build();
+        if (occupationDao.findOne(id) != null) {
+            this.occupationDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

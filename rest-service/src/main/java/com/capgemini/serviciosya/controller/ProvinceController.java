@@ -58,7 +58,12 @@ public class ProvinceController {
 
     @RequestMapping (value = "/id" , method = RequestMethod.DELETE)
     public ResponseEntity<?> delete (@PathVariable ("id") Integer id){
-        this.provinceDao.delete(id);
-        return ResponseEntity.noContent().build();
+        if (provinceDao.findOne(id) != null) {
+            this.provinceDao.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
